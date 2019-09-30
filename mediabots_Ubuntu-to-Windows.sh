@@ -9,9 +9,9 @@ if [ $virtu = 0 ] ; then echo -e "[Error] ${RED}Virtualization/KVM in your Serve
 else
 #
 # Deleting Previous Windows Installation by the Script
-#umount -l /mnt /media/script /media/sw
-#rm -rf /mediabots /floppy /virtio /media/* /tmp/*
-#rm -f /sw.iso /disk.img 
+umount -l /mnt /media/script /media/sw
+rm -rf /mediabots /floppy /virtio /media/* /tmp/*
+rm -f /sw.iso /disk.img 
 # installing required Ubuntu packages
 dist=$(hostnamectl | egrep "Operating System" | cut -f2 -d":" | cut -f2 -d " ")
 if [ $dist = "CentOS" ] ; then

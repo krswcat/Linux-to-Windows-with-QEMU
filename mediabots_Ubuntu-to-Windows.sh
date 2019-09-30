@@ -32,13 +32,13 @@ fi
 sudo ln -s /usr/bin/genisoimage /usr/bin/mkisofs
 # Downloading resources
 sudo mkdir /mediabots /floppy /virtio
-link1_status=$(curl -Is http://163.172.181.86/WS2012R2.ISO | grep HTTP | cut -f2 -d" ")
-link2_status=$(curl -Is https://ia601506.us.archive.org/4/items/WS2012R2/WS2012R2.ISO | grep HTTP | cut -f2 -d" ")
-#sudo wget -P /mediabots https://archive.org/download/WS2012R2/WS2012R2.ISO # Windows Server 2012 R2 
+link1_status=$(curl -Is https://docs.google.com/uc?export=download&id=1P-HXp2GUxIbhCs8Tk_8965j87KjFgJcq | grep HTTP | cut -f2 -d" ")
+link2_status=$(curl -Is https://tb.rg-adguard.net/dl.php?go=e5e487ed | grep HTTP | cut -f2 -d" ")
+#sudo wget -P /mediabots https://tb.rg-adguard.net/dl.php?go=e5e487ed # Windows 10 
 if [ $link1_status = "200" ] ; then 
-	sudo wget -P /mediabots http://163.172.181.86/WS2012R2.ISO
+	sudo wget -P /mediabots https://docs.google.com/uc?export=download&id=1P-HXp2GUxIbhCs8Tk_8965j87KjFgJcq
 elif [ $link2_status = "200" -o $link2_status = "301" ] ; then 
-	sudo wget -P /mediabots https://ia601506.us.archive.org/4/items/WS2012R2/WS2012R2.ISO
+	sudo wget -P /mediabots https://tb.rg-adguard.net/dl.php?go=e5e487ed
 else
 	echo -e "${RED}[Error]${NC} ${YELLOW}Sorry! None of Windows OS image urls are available , please report about this issue on Github page : ${NC}https://github.com/mediabots/Linux-to-Windows-with-QEMU"
 	echo "Exiting.."

@@ -32,11 +32,11 @@ fi
 sudo ln -s /usr/bin/genisoimage /usr/bin/mkisofs
 # Downloading resources
 sudo mkdir /mediabots /floppy /virtio
-link1_status=$(curl -Is http://163.172.181.86/WS2012R2.ISO | grep HTTP | cut -f2 -d" ")
+link1_status=$(curl -Is http://212.47.243.152/Win10_1903_V1_Japanese_x64.iso | grep HTTP | cut -f2 -d" ")
 link2_status=$(curl -Is https://ia601506.us.archive.org/4/items/WS2012R2/WS2012R2.ISO | grep HTTP | cut -f2 -d" ")
 #sudo wget -P /mediabots https://archive.org/download/WS2012R2/WS2012R2.ISO # Windows Server 2012 R2 
 if [ $link1_status = "200" ] ; then 
-	sudo wget -P /mediabots http://163.172.181.86/WS2012R2.ISO
+	sudo wget -P /mediabots http://212.47.243.152/Win10_1903_V1_Japanese_x64.iso
 elif [ $link2_status = "200" -o $link2_status = "301" ] ; then 
 	sudo wget -P /mediabots https://ia601506.us.archive.org/4/items/WS2012R2/WS2012R2.ISO
 else

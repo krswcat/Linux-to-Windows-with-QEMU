@@ -32,13 +32,13 @@ fi
 sudo ln -s /usr/bin/genisoimage /usr/bin/mkisofs
 # Downloading resources
 sudo mkdir /mediabots /floppy /virtio
-link1_status=$(curl -Is https://archive.org/download/win101903v1japanesex64/Win10_1903_V1_Japanese_x64.iso | grep HTTP | cut -f2 -d" ")
-link2_status=$(curl -Is https://archive.org/download/win101903v1japanesex64/Win10_1903_V1_Japanese_x64.iso | grep HTTP | cut -f2 -d" ")
-#sudo wget -P /mediabots https://archive.org/download/win101903v1japanesex64/Win10_1903_V1_Japanese_x64.iso # Windows 10 
+link1_status=$(curl -Is https://ia801508.us.archive.org/5/items/win101903v1japanesex64/Win10_1903_V1_Japanese_x64.iso | grep HTTP | cut -f2 -d" ")
+link2_status=$(curl -Is https://ia801508.us.archive.org/5/items/win101903v1japanesex64/Win10_1903_V1_Japanese_x64.iso | grep HTTP | cut -f2 -d" ")
+#sudo wget -P /mediabots https://ia801508.us.archive.org/5/items/win101903v1japanesex64/Win10_1903_V1_Japanese_x64.iso # Windows 10 
 if [ $link1_status = "200" ] ; then 
-	sudo wget -P /mediabots https://archive.org/download/win101903v1japanesex64/Win10_1903_V1_Japanese_x64.iso
+	sudo wget -P /mediabots https://ia801508.us.archive.org/5/items/win101903v1japanesex64/Win10_1903_V1_Japanese_x64.iso
 elif [ $link2_status = "200" -o $link2_status = "301" ] ; then 
-	sudo wget -P /mediabots https://archive.org/download/win101903v1japanesex64/Win10_1903_V1_Japanese_x64.iso
+	sudo wget -P /mediabots https://ia801508.us.archive.org/5/items/win101903v1japanesex64/Win10_1903_V1_Japanese_x64.iso
 else
 	echo -e "${RED}[Error]${NC} ${YELLOW}Sorry! None of Windows OS image urls are available , please report about this issue on Github page : ${NC}https://github.com/mediabots/Linux-to-Windows-with-QEMU"
 	echo "Exiting.."
